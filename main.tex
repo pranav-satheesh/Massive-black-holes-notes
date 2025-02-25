@@ -1,5 +1,5 @@
 \documentclass{book}
-\newcommand{\mnras}{Monthly Notices of the Royal Astronomical Society}
+
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{thmtools}
@@ -20,7 +20,7 @@
 \usepackage[english]{babel}
 \usepackage{framed}
 
-\usepackage{tcolorbox}
+% \usepackage{tcolorbox}
 \usepackage{natbib}
 \colorlet{LightGray}{White!90!Periwinkle}
 \colorlet{LightOrange}{Orange!15}
@@ -28,6 +28,14 @@
 \usepackage[most]{tcolorbox}
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\mnras}{MNRAS}
+\newcommand{\araa}{ARAA}
+\newcommand{\apj}{ApJ}
+\newcommand{\apjs}{ApJs}
+\newcommand{\nat}{Nature}
+\newcommand{\aj}{AJ}
+\newcommand{\apjl}{ApJL}
+
 
 \newtcolorbox{mybox}[1][]{%
   colback=green!5!white,
@@ -38,15 +46,15 @@
 
 % \declaretheoremstyle[name=gray,]{thmsty}
 % \declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{gray}{colback=LightGray}
+% \tcolorboxenvironment{gray}{colback=LightGray}
 
 % \declaretheoremstyle[name=orange,]{prosty}
 % \declaretheorem[style=prosty,numberlike=theorem]{proposition}
-\tcolorboxenvironment{orange}{colback=LightOrange}
+% \tcolorboxenvironment{orange}{colback=LightOrange}
 
 % \declaretheoremstyle[name=green,]{prcpsty}
 % \declaretheorem[style=prcpsty,numberlike=theorem]{principle}
-\tcolorboxenvironment{green}{colback=LightGreen}
+% \tcolorboxenvironment{green}{colback=LightGreen}
 
 \setstretch{1.2}
 \geometry{
@@ -60,6 +68,10 @@
 
 % ------------------------------------------------------------------------------
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TO-DO: #1}}}
+\newcommand{\msun}{\ensuremath{M_{\odot}}}
+\newcommand{\kms}{\ensuremath{\mathrm{km\,s^{-1}}}}
+
+
 \usepackage{natbib}
 \setcitestyle{square, comma, numbers,sort&compress, super}
 
@@ -87,10 +99,6 @@
 
 \chapter{Introduction}
 
-\begin{theorem}
-    This is a theorem.
-\end{theorem}
-
 % \begin{proposition}
 %     This is a proposition.
 % \end{proposition}
@@ -106,7 +114,7 @@
 
 Massive black holes occupy the centers of most galaxies \citep{Kormendy_1995,magorrian_demography_1998}, with observational evidence pointing to a correlation between the MBH mass and several properties of the host's stellar bulge \citep{ferrarese_fundamental_2000,tremaine_slope_2002,gultekin_m-sigma_2009,mcconnell_revisiting_2013,Kormendy_2013}. This relationship implies that the growth of MBHs is intertwined with galaxy evolution. The interplay between MBH accretion and feedback mechanisms likely contributes to these observed MBH-galaxy correlations \citep{volonteri_assembly_2003,Hopkins2008}.
 
-In the hierarchical model of galaxy evolution, mergers are considered a crucial component. Since MBHs are commonly found in galactic centers, an MBH binary (MBHB) can form as a natural consequence of galaxy mergers \citep{Begelman1980}. As these MBHs are dynamically inspiral closer together by interactions with stars and gas, they may eventually reach sub-parsec (sub-pc) orbital separations, at which point they can inspiral via the emission of gravitational waves (GWs) \citep{PetersandMathews1964}. MBHBs are the loudest GW sources in the universe, with chirp frequencies ranging from millihertz (mHz) for MBHs around $\sim 10^6$ \msun to nanohertz (nHz) for MBHs around $10^8$ \msun \citep{Sesana2013}. In the nanohertz frequency range, GWs from a population of MBHBs can combine to produce a gravitational wave background (GWB). Pulsar timing arrays (PTAs) around the world have found compelling evidence for a GWB that is consistent with a MBHB origin of the background \citep{agazie_nanograv_2023,antoniadis_second_2023,reardon_search_2023,xu_searching_2023}. Looking forward, the Lase Interferometer Space Antenna (LISA) will be able to see MBHB mergers for masses  $\lesssim 10^6$  \msun out to a redshift of $z \sim 20$ \citep{amaroseoane2017laserinterferometerspaceantenna}. 
+In the hierarchical model of galaxy evolution, mergers are considered a crucial component. Since MBHs are commonly found in galactic centers, an MBH binary (MBHB) can form as a natural consequence of galaxy mergers \citep{Begelman1980}. As these MBHs are dynamically inspiral closer together by interactions with stars and gas, they may eventually reach sub-parsec (sub-pc) orbital separations, at which point they can inspiral via the emission of gravitational waves (GWs) \citep{PetersandMathews1964}. MBHBs are the loudest GW sources in the universe, with chirp frequencies ranging from millihertz (mHz) for MBHs around $\sim 10^6$ \msun{} to nanohertz (nHz) for MBHs around $10^8$ \msun \citep{Sesana2013}. In the nanohertz frequency range, GWs from a population of MBHBs can combine to produce a gravitational wave background (GWB). Pulsar timing arrays (PTAs) around the world have found compelling evidence for a GWB that is consistent with a MBHB origin of the background \citep{agazie_nanograv_2023,antoniadis_second_2023,reardon_search_2023,xu_searching_2023}. Looking forward, the Lase Interferometer Space Antenna (LISA) will be able to see MBHB mergers for masses  $\lesssim 10^6$  \msun out to a redshift of $z \sim 20$ \citep{amaroseoane2017laserinterferometerspaceantenna}. 
 
 To accurately predict the GW signatures from the merging MBHB population, we need to understand the timescales of their mergers, which remain highly uncertain. MBH binary inspiral or ``binary hardening" is driven by various physical processes first detailed in the work by \citet{Begelman1980}. After a galaxy merger, dynamical friction \citep{Antonini2012} is responsible for bringing the MBHs towards the galactic center, leading to the formation of a gravitationally bound binary. The MBHB becomes a gravitationally bound system when the mass enclosed by the binary orbit is comparable to the MBH mass which typically happens around $\lesssim$ 1-10 pc \citep{begelman_massive_1980,quinlan_dynamical_1996,Yu_2002}.
 
@@ -139,7 +147,7 @@ In Section \ref{sec: methods} we describe the MBH binary and triple population, 
 \section{Methods}
 \label{sec: methods}
 
-For our work, we use data from the Illustris cosmological hydrodynamic simulation suite \citep{Vogelsberger_2013,Genel_2014,Nelson_2015}. Since Illustris has a gravitational softening length defined for each particle or cell, the dynamics of the binary inspiral need to be modeled beyond the simulation resolution. Post-processing models \citet{Kelley_2017a, Kelley_2017b,sayeb_massive_2021} use extrapolated host galaxy density profiles to compute the hardening rates of binary inspiral due to dynamical friction, stellar scattering, circumbinary gas-disk driven hardening, and GW emission. \citet{sayeb_mbh_2023} (hereafter \SB ) uses these inspirals to identify triples by investigating MBHs that experience more than one merger. While \SB{}  identifies only identifies the population of triple MBHs in Illustris, we add in the results from the \citet{bonetti_post-newtonian_2016,bonetti_post-newtonian_2018} numerical simulations of MBH triplets to model their outcomes.
+For our work, we use data from the Illustris cosmological hydrodynamic simulation suite \citep{Vogelsberger_2013,Genel_2014,Nelson_2015}. Since Illustris has a gravitational softening length defined for each particle or cell, the dynamics of the binary inspiral need to be modeled beyond the simulation resolution. Post-processing models \citet{Kelley_2017a, Kelley_2017b,sayeb_massive_2021} use extrapolated host galaxy density profiles to compute the hardening rates of binary inspiral due to dynamical friction, stellar scattering, circumbinary gas-disk driven hardening, and GW emission. \citet{sayeb_mbh_2023} (hereafter SB ) uses these inspirals to identify triples by investigating MBHs that experience more than one merger. While SB{}  identifies only identifies the population of triple MBHs in Illustris, we add in the results from the \citet{bonetti_post-newtonian_2016,bonetti_post-newtonian_2018} numerical simulations of MBH triplets to model their outcomes.
 
 Throughout this paper, we use the following binary and triple parameters: $m_1$ and $m_2$ denote the masses of the primary and secondary of the inner binary. The mass ratio of the inner binary is $q_{\rm in} = m_2/m_1$ and is always smaller than unity as the primary is more massive than the secondary. The intruder BH's mass is denoted by $m_3$ and the outer binary mass ratio is $q_{\rm out} = m_3/(m_1 + m_2)$. Note that qout can be greater than or less than unity.  
 
@@ -308,6 +316,6 @@ The Illustris cosmological simulation
 \chapter{Gravitational waves from MBHBs}
 
 
-\bibliographystyle{unsrtnat}
+\bibliographystyle{mnras}
 \bibliography{references}
 \end{document}
